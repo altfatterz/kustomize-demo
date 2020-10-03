@@ -122,7 +122,19 @@ metadata:
   namespace: default
 ```
 
-Using `Spring Cloud Kubernetes` to load ConfigMaps
+Using `Spring Cloud Kubernetes` to load ConfigMaps.
+
+It is recommended, that containers share secrets through mounted volumes.
+
+Check secrets:
+
+```bash
+$ kubectl exec -it <pod> -n dev -- bash
+$ cat /var/kustomize-demo/db.username
+admin
+$ cat /var/kustomize-demo/db.password
+verysecret
+```
 
 
 
