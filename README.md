@@ -142,3 +142,4 @@ Resources:
 
 1. https://spring.io/projects/spring-cloud-kubernetes#learn
 2. https://docs.spring.io/spring-cloud-kubernetes/docs/1.1.6.RELEASE/reference/html/#configmap-propertysource
+3. https://stackoverflow.com/questions/55052565/retrieve-kubernetes-secrets-mounted-as-volumes
