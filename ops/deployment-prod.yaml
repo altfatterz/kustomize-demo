@@ -18,6 +18,9 @@ spec:
       containers:
         - image: kustomize-demo:0.0.1-SNAPSHOT
           name: kustomize-demo
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: prod
 ---
 apiVersion: v1
 kind: ConfigMap

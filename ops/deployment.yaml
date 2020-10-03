@@ -18,13 +18,16 @@ spec:
       containers:
         - image: kustomize-demo:0.0.1-SNAPSHOT
           name: kustomize-demo
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: dev
           volumeMounts:
             - name: kustomize-demo-secret-volume
               mountPath: /var/kustomize-demo
       volumes:
         - name: kustomize-demo-secret-volume
           secret:
-            secretName: kustomize-demo-secret
+            secretName: kustomize-demo
 
 ---
 apiVersion: v1
@@ -43,6 +46,6 @@ data:
   db.username: YWRtaW4K
   db.password: dmVyeXNlY3JldAo=
 metadata:
-  name: kustomize-demo-secret
+  name: kustomize-demo
   namespace: dev
 

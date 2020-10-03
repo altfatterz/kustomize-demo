@@ -10,16 +10,23 @@ import org.springframework.web.bind.annotation.RestController;
 public class GreetingController {
 
     private final ApplicationEventPublisher publisher;
-    private final AppConfig config;
+    private final AppConfig appConfig;
+    private final DBConfig dbConfig;
 
-    public GreetingController(ApplicationEventPublisher publisher, AppConfig config) {
+    public GreetingController(ApplicationEventPublisher publisher, AppConfig config, DBConfig dbConfig) {
         this.publisher = publisher;
-        this.config = config;
+        this.appConfig = config;
+        this.dbConfig = dbConfig;
     }
 
     @GetMapping("/greet")
     public String greet() {
-        return config.getMessage();
+        return appConfig.getMessage();
+    }
+
+    @GetMapping("db-credentials")
+    public String credentials() {
+        return dbConfig.getUsername() + ":" + dbConfig.getPassword();
     }
 
     @GetMapping("/down")
