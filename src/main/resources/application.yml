@@ -1,6 +1,8 @@
 server:
   shutdown: graceful
 spring:
+  application:
+    name: kustomize-demo
   lifecycle:
     timeout-per-shutdown-phase: 20s
   main:

@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+data:
+  greeter.message: Hello World
+metadata:
+  name: kustomize-demo
+  namespace: dev

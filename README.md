@@ -88,10 +88,45 @@ To delete the resources:
 $ kustomize build --load_restrictor none k8s/overlays/dev | kubectl delete -f -
 ```
 
+### ConfigMap and Secret
 
+```bash
+$ kubectl create configmap app-config --from-literal=greeter.foo=bar
+$ kubectl get configmap app-config -o yaml
+```
+
+```yaml
+apiVersion: v1
+kind: ConfigMap
+data:
+  app.foo: bar
+metadata:
+  name: app-config
+  namespace: default
+```
+
+```
+$ kubectl create secret generic db-secret --from-literal=db.username=user --from-literal=db.password=p455w0rd
+$ kubectl get secret db-secret -o yaml
+```
+
+```yaml
+apiVersion: v1
+kind: Secret
+type: Opaque
+data:
+  db.password: cDQ1NXcwcmQ=
+  db.username: dXNlcg==
+metadata:
+  name: db-secret
+  namespace: default
+```
+
+Using `Spring Cloud Kubernetes` to load ConfigMaps
 
 
 
 Resources:
 
 1. https://spring.io/projects/spring-cloud-kubernetes#learn
+2. https://docs.spring.io/spring-cloud-kubernetes/docs/1.1.6.RELEASE/reference/html/#configmap-propertysource

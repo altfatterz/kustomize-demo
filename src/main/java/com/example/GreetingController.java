@@ -7,18 +7,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class HelloWorldController {
+public class GreetingController {
 
     private final ApplicationEventPublisher publisher;
+    private final AppConfig config;
 
-    public HelloWorldController(ApplicationEventPublisher publisher) {
+    public GreetingController(ApplicationEventPublisher publisher, AppConfig config) {
         this.publisher = publisher;
+        this.config = config;
     }
 
-    @GetMapping("/hello")
-    public String hello() throws InterruptedException {
-        Thread.sleep(5000);
-        return "Hello World!";
+    @GetMapping("/greet")
+    public String greet() {
+        return config.getMessage();
     }
 
     @GetMapping("/down")
