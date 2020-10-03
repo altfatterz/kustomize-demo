@@ -24,7 +24,7 @@ public class GreetingController {
         return appConfig.getMessage();
     }
 
-    @GetMapping("db-credentials")
+    @GetMapping("/db-credentials")
     public String credentials() {
         return dbConfig.getUsername() + ":" + dbConfig.getPassword();
     }

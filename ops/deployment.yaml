@@ -21,14 +21,16 @@ spec:
           env:
             - name: SPRING_PROFILES_ACTIVE
               value: dev
-          volumeMounts:
-            - name: kustomize-demo-secret-volume
-              mountPath: /var/kustomize-demo
-      volumes:
-        - name: kustomize-demo-secret-volume
-          secret:
-            secretName: kustomize-demo
-
+            - name: DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  key: db.username
+                  name: kustomize-demo-secret
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: db.password
+                  name: kustomize-demo-secret
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -43,9 +45,9 @@ apiVersion: v1
 kind: Secret
 type: Opaque
 data:
-  db.username: YWRtaW4K
+  db.username: YWRtaW4=
   db.password: dmVyeXNlY3JldAo=
 metadata:
-  name: kustomize-demo
+  name: kustomize-demo-secret
   namespace: dev
 

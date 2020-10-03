@@ -8,6 +8,10 @@ spring:
   main:
     cloud-platform: kubernetes
 
+  cloud.kubernetes.secrets:
+    name: kustomize-demo
+    namespace: dev
+
 management:
   endpoints:
     web:
@@ -16,4 +20,4 @@ management:
 
 logging:
   level:
-    org.springframework.cloud.kubernetes: debug
+    org.springframework.cloud: debug
