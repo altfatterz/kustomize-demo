@@ -8,11 +8,17 @@ spring:
   main:
     cloud-platform: kubernetes
 
-  cloud.kubernetes.secrets:
-    name: kustomize-demo
-    namespace: dev
+  # https://docs.spring.io/spring-cloud-kubernetes/docs/1.1.6.RELEASE/reference/html/#propertysource-reload
+  cloud.kubernetes.reload:
+    enabled: true
+    strategy: restart_context
 
 management:
+  # needed for the PropertySource Reload feature of Spring Cloud Kubernetes
+  endpoint:
+    restart:
+      enabled: true
+
   endpoints:
     web:
       exposure:
