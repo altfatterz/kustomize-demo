@@ -19,13 +19,12 @@ spec:
         - image: kustomize-demo:0.0.1-SNAPSHOT
           name: kustomize-demo
           volumeMounts:
-            - name: kustomizo-demo-secret-volume
+            - name: kustomize-demo-secret-volume
               mountPath: /var/kustomize-demo
-              readOnly: true
       volumes:
-        - name: kustomizo-demo-secret-volume
+        - name: kustomize-demo-secret-volume
           secret:
-            secretName: kustomizo-demo-secret
+            secretName: kustomize-demo-secret
 
 ---
 apiVersion: v1
@@ -44,6 +43,6 @@ data:
   db.username: YWRtaW4K
   db.password: dmVyeXNlY3JldAo=
 metadata:
-  name: kustomizo-demo-secret
+  name: kustomize-demo-secret
   namespace: dev
 
