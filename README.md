@@ -90,3 +90,8 @@ $ kustomize build --load_restrictor none k8s/overlays/dev | kubectl delete -f -
 
 
 
+
+
+Resources:
+
+1. https://spring.io/projects/spring-cloud-kubernetes#learn
