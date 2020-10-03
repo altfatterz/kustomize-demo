@@ -18,3 +18,11 @@ spec:
       containers:
         - image: kustomize-demo:0.0.1-SNAPSHOT
           name: kustomize-demo
+---
+apiVersion: v1
+kind: ConfigMap
+data:
+  greeter.message: Hello from prod namespace
+metadata:
+  name: kustomize-demo
+  namespace: prod
