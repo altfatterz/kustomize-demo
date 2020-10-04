@@ -2,17 +2,17 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: kustomize-demo-deployment
-  name: kustomize-demo-deployment
+    app: kustomize-demo
+  name: kustomize-demo
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: kustomize-demo-deployment
+      app: kustomize-demo
   template:
     metadata:
       labels:
-        app: kustomize-demo-deployment
+        app: kustomize-demo
     spec:
       containers:
         - image: kustomize-demo:0.0.1-SNAPSHOT

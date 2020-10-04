@@ -122,6 +122,15 @@ metadata:
   namespace: default
 ```
 
+### Customise resource names
+
+```bash
+$ kustomize edit set nameprefix 'prod-'
+```
+
+### Create patches
+
+ 
 
 Resources:
 

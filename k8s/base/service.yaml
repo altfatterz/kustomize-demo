@@ -2,11 +2,11 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: kustomize-demo-service
-  name: kustomize-demo-service
+    app: kustomize-demo
+  name: kustomize-demo
 spec:
   selector:
-    app: kustomize-demo-service
+    app: kustomize-demo
   ports:
     - name: 8080-8080
       port: 8080

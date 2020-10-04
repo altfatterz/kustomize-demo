@@ -4,3 +4,6 @@ resources:
 - ../../base/deployment.yaml
 - ../../base/service.yaml
 namespace: dev
+patchesStrategicMerge:
+  - environment_patch.yaml
+#- healthcheck_patch.yaml
