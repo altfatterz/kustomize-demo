@@ -122,25 +122,6 @@ metadata:
   namespace: default
 ```
 
-Using `Spring Cloud Kubernetes` to load ConfigMaps.
-
-Secrets are exposed in this example via environment variables.
-
-Property reload feature:
-
-```bash
-$ kubectl edit cm kustomize-demo -n dev
-```
-
-In the logs you can see:
-
-```bash
-2020-10-03 21:33:29.936  INFO 1 --- [       Thread-6] .r.EventBasedConfigurationChangeDetector : Added new Kubernetes watch: config-maps-watch
-2020-10-03 21:33:29.942  INFO 1 --- [       Thread-6] .r.EventBasedConfigurationChangeDetector : Kubernetes event-based configuration change detector activated
-2020-10-03 21:33:30.038  INFO 1 --- [       Thread-6] com.example.KustomizeDemoApplication     : Started KustomizeDemoApplication in 1.381 seconds (JVM running for 467.216)
-2020-10-03 21:33:30.040  INFO 1 --- [       Thread-6] o.s.c.context.restart.RestartEndpoint    : Restarted
-```
-
 
 Resources:
 

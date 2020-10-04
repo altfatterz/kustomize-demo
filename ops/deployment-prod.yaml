@@ -21,23 +21,28 @@ spec:
           env:
             - name: SPRING_PROFILES_ACTIVE
               value: prod
+            - name: GREETER_MESSAGE
+              valueFrom:
+                configMapKeyRef:
+                  name: kustomize-demo-configmap
+                  key: greeter.message
             - name: DB_USERNAME
               valueFrom:
                 secretKeyRef:
-                  key: db.username
                   name: kustomize-demo-secret
+                  key: db.username
             - name: DB_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  key: db.password
                   name: kustomize-demo-secret
+                  key: db.password
 ---
 apiVersion: v1
 kind: ConfigMap
 data:
   greeter.message: Hello from prod namespace
 metadata:
-  name: kustomize-demo
+  name: kustomize-demo-configmap
   namespace: prod
 
 ---
