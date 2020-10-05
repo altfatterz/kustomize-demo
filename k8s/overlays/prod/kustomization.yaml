@@ -5,8 +5,8 @@ resources:
 - ../../base/service.yaml
 namePrefix: prod-
 namespace: prod
-#- healthcheck_patch.yaml
 patchesStrategicMerge:
 - resourceconstraints_patch.yaml
 - environment_patch.yaml
-#- healthcheck_patch.yaml
+- healthcheck_patch.yaml
+- increase_replicas_patch.yaml
