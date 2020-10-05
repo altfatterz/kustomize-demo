@@ -6,4 +6,3 @@ resources:
 namespace: dev
 patchesStrategicMerge:
   - environment_patch.yaml
-#- healthcheck_patch.yaml

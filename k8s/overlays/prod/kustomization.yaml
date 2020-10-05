@@ -6,7 +6,7 @@ resources:
 namePrefix: prod-
 namespace: prod
 patchesStrategicMerge:
-- resourceconstraints_patch.yaml
+- resource_constraints_patch.yaml
 - environment_patch.yaml
-- healthcheck_patch.yaml
+- health_check_patch.yaml
 - increase_replicas_patch.yaml
