@@ -164,6 +164,18 @@ You can get a list of images present on a cluster node by using docker exec:
 $ docker exec -it 067290147e33 crictl images
 ``` 
 
+#### Add label
+
+```yaml
+commonLabels:
+  env: prod
+```
+
+```bash
+$ kubectl get all -n prod --show-labels
+```
+
+
 Resources:
 
 1. https://spring.io/projects/spring-cloud-kubernetes#learn

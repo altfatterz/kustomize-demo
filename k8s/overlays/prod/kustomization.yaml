@@ -4,6 +4,8 @@ resources:
 - ../../base/deployment.yaml
 - ../../base/service.yaml
 namePrefix: prod-
+commonLabels:
+  env: prod
 namespace: prod
 patchesStrategicMerge:
 - resource_constraints_patch.yaml
