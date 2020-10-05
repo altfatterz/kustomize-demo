@@ -130,7 +130,39 @@ $ kustomize edit set nameprefix 'prod-'
 
 ### Create patches
 
+
+### kind
+
+https://kind.sigs.k8s.io/docs/user/quick-start/
+
+```bash
+$ brew install kind
+```
+
+```bash
+$ kind create cluster --config=kind-cluster-config.yaml
+```
+
+```bash
+$ kind get clusters
+$ kind delete cluster --name=<cluster-name>
+```
  
+Load an image into your cluster
+
+```bash
+$ kind load docker-image kustomize-demo:0.0.1-SNAPSHOT --name my-cluster
+altfatterz@zoltan-altfatter-zrh:~/projects/demos/kustomize-demo|master⚡ ⇒  kind load docker-image kustomize-demo:0.0.1-SNAPSHOT --name my-cluster
+Image: "kustomize-demo:0.0.1-SNAPSHOT" with ID "sha256:adb9bc431439dea21dc31155587da79183bda9f8636d80127d08d0dbdce6d4c7" not yet present on node "my-cluster-worker", loading...
+Image: "kustomize-demo:0.0.1-SNAPSHOT" with ID "sha256:adb9bc431439dea21dc31155587da79183bda9f8636d80127d08d0dbdce6d4c7" not yet present on node "my-cluster-control-plane", loading...
+Image: "kustomize-demo:0.0.1-SNAPSHOT" with ID "sha256:adb9bc431439dea21dc31155587da79183bda9f8636d80127d08d0dbdce6d4c7" not yet present on node "my-cluster-worker2", loading...
+```
+ 
+You can get a list of images present on a cluster node by using docker exec:
+ 
+```bash
+$ docker exec -it 067290147e33 crictl images
+``` 
 
 Resources:
 
